@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@color/colorWhite">
+
+    <ImageView
+        android:id="@+id/img_recipe"
+        android:layout_width="86dp"
+        android:layout_height="86dp"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/recipe_view"
+        android:src="@drawable/ic_placeholder" />
+
+    <TextView
+        android:id="@+id/name_recipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/img_recipe"
+        android:layout_toEndOf="@id/img_recipe"
+        android:fontFamily="sans-serif-monospace"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:text="@string/app_name"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+        android:textColor="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/ingredients_recipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/img_recipe"
+        android:layout_below="@id/img_recipe"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:text="@string/app_name"
+        android:textAppearance="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle"
+        />
+
+    <TextView
+        android:id="@+id/servings_recipe"
+        android:layout_width="wrap_content"
+        android:textColor="@color/colorSecondaryText"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/name_recipe"
+        android:layout_below="@id/name_recipe"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="@string/app_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+</RelativeLayout>

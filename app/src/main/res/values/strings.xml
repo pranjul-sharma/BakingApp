@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">Baking App</string>
+    <string name="error_network">Error while fetching data from server.</string>
+    <string name="recipe_view">Recipe Image container</string>
+
+
+    <string name="servings_count">Servings: %2d</string>
+    <string name="step_formatter">%d. %s</string>
+    <string name="prev">PREV</string>
+    <string name="next">NEXT</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_video">No video found for the current step.</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+
+    <string name="prefs_name">favourite_recipe_prefs</string>
+    <string name="prefs_key">favorite_recipe</string>
+    <string name="unable_to_load">Not a valid recipe or you haven\'t favorited any recipe yet.</string>
+    <string name="widget_heading_placeholder">Favorite Recipe</string>
+    <string name="widget_ingredients_placeholder">Favorite Recipe Ingredients list</string>
+    <string name="favorite_recipe">add to favorite</string>
+    <string name="unfavorite_recipe">Unfavorite current recipe</string>
+    <string name="unfavorite_current">You can simply unfavorite it by chosing another recipe as your favorite.</string>
+    <string name="added_to_favorite">Recipe added to favorites.</string>
+</resources>
