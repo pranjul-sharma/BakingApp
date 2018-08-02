@@ -25,7 +25,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".HomeActivity"/>
         </activity>
-        <activity android:name=".StepDetailActivity" />
+        <activity android:name=".StepDetailActivity" android:parentActivityName=".RecipeDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RecipeDetailActivity"/>
+        </activity>
 
         <receiver android:name=".IngredientWidgetProvider">
             <intent-filter>

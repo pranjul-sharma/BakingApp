@@ -24,4 +24,5 @@
     <string name="unfavorite_recipe">Unfavorite current recipe</string>
     <string name="unfavorite_current">You can simply unfavorite it by chosing another recipe as your favorite.</string>
     <string name="added_to_favorite">Recipe added to favorites.</string>
+    <string name="recipe_thumbnail">recipe thumbnail image will appear here</string>
 </resources>

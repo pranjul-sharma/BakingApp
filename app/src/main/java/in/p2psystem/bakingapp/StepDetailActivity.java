@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +39,9 @@ public class StepDetailActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        boolean orientationLand = false;
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            orientationLand = true;
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
             requestWindowFeature(Window.FEATURE_NO_TITLE);
             if (getSupportActionBar() != null) getSupportActionBar().hide();
@@ -47,12 +50,13 @@ public class StepDetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         if (getSupportActionBar() != null) getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        prevBtn.setVisibility(View.VISIBLE);
-        nextBtn.setVisibility(View.VISIBLE);
-        gapView.setVisibility(View.VISIBLE);
-        prevBtn.setClickable(false);
-        nextBtn.setClickable(false);
-
+        if (!orientationLand) {
+            prevBtn.setVisibility(View.VISIBLE);
+            nextBtn.setVisibility(View.VISIBLE);
+            gapView.setVisibility(View.VISIBLE);
+            prevBtn.setClickable(false);
+            nextBtn.setClickable(false);
+        }
         steps = getIntent().getParcelableArrayListExtra(STEP_KEY);
         position = getIntent().getIntExtra(STEP_KEY_SELECTED, 0);
         manager = getSupportFragmentManager();

@@ -53,13 +53,15 @@ public class RecipeDetailActivity extends AppCompatActivity implements RecipeDet
         if (findViewById(R.id.recipe_detail_container) != null) {
             twoPane = true;
             FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction()
-                    .add(R.id.recipe_detail_container, RecipeDetailFragment.newInstance(recipe))
-                    .commit();
+            if(savedInstanceState == null) {
+                manager.beginTransaction()
+                        .add(R.id.recipe_detail_container, RecipeDetailFragment.newInstance(recipe))
+                        .commit();
 
-            manager.beginTransaction()
-                    .add(R.id.fragment_container, StepDetailFragment.newInstance(recipe.getRecipeSteps().get(0)))
-                    .commit();
+                manager.beginTransaction()
+                        .add(R.id.fragment_container, StepDetailFragment.newInstance(recipe.getRecipeSteps().get(0)))
+                        .commit();
+            }
         } else {
             twoPane = false;
             if (savedInstanceState == null) {

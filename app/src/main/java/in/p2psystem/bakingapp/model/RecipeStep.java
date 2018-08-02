@@ -37,6 +37,10 @@ public class RecipeStep implements Parcelable {
         thumbnailURL = in.readString();
     }
 
+    public void setThumbnailURL(String thumbnailURL) {
+        this.thumbnailURL = thumbnailURL;
+    }
+
     @Override
     public String toString() {
         return getId()+" "+ getVideoURL()+" "+ getThumbnailURL()+" "+getShortDescription()+" "+getDescription();

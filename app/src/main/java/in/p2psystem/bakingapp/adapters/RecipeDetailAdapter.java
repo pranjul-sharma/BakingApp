@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,7 @@ import butterknife.ButterKnife;
 import in.p2psystem.bakingapp.R;
 import in.p2psystem.bakingapp.model.Recipe;
 import in.p2psystem.bakingapp.model.RecipeIngredient;
+import in.p2psystem.bakingapp.model.RecipeStep;
 
 public class RecipeDetailAdapter extends RecyclerView.Adapter<RecipeDetailAdapter.DetailViewHolder> {
     private final Context context;
@@ -78,9 +80,16 @@ public class RecipeDetailAdapter extends RecyclerView.Adapter<RecipeDetailAdapte
             }
             holder.ingredientsRecipeTv.setText(builder.toString());
         } else if (getItemViewType(position) == VIEW_STEPS) {
-            String step = context.getResources().getString(R.string.step_formatter,
-                    recipe.getRecipeSteps().get(position - 1).getId() + 1, recipe.getRecipeSteps().get(position - 1).getShortDescription());
-            holder.stepRecipeTv.setText(step);
+            RecipeStep step = recipe.getRecipeSteps().get(position - 1);
+            String stepStr = context.getResources().getString(R.string.step_formatter,
+                    step.getId() + 1, step.getShortDescription());
+            holder.stepRecipeTv.setText(stepStr);
+            if(TextUtils.isEmpty(step.getThumbnailURL()))
+                step.setThumbnailURL(null);
+            Picasso.get().load(step.getThumbnailURL())
+                    .placeholder(R.drawable.ic_placeholder)
+                    .error(R.drawable.ic_placeholder)
+                    .into(holder.recipeStepThumbnailIv);
         }
     }
 
@@ -116,6 +125,10 @@ public class RecipeDetailAdapter extends RecyclerView.Adapter<RecipeDetailAdapte
         @Nullable
         @BindView(R.id.recipe_step)
         TextView stepRecipeTv;
+
+        @Nullable
+        @BindView(R.id.recipe_thumbnail)
+        ImageView recipeStepThumbnailIv;
 
         @Nullable
         @BindView(R.id.servings_recipe)
